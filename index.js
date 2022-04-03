@@ -40,7 +40,7 @@ wss.on('connection', (ws) => {
     if (message.indexOf('COMMAND') === 0) {
       command = message.split('COMMAND:')[1].toLowerCase()
       if (typeof COMMANDS[command] !== 'undefined') {
-        serialPort.write("CMD:" + COMMANDS[command], function(err) {
+        serialPort.write(`SPCMD:${COMMANDS[command]}--`, function(err) {
           if (err) {
             return console.log('Error on write: ', err.message)
           }
