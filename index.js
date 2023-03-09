@@ -3,6 +3,7 @@ const Readline = require('@serialport/parser-readline')
 const WebSocket = require('ws')
 const { EventEmitter } = require('events')
 const influxdbLogger = require('./loggers/influxdb')
+const fileLogger = require('./loggers/file')
 
 SERVER_PORT = 3210
 WS_PORT = 8080
@@ -29,6 +30,7 @@ const COMMANDS = {
 }
 
 dataEmitter.on('data', influxdbLogger)
+dataEmitter.on('data', fileLogger)
 
 const wss = new WebSocket.Server({port: WS_PORT})
 console.log(`Started WebSocket Server on port ${WS_PORT}`)
