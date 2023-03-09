@@ -35,12 +35,12 @@ module.exports = async (messageStr, overwriteTimeMs) => {
         battery: (+data[4])/1000, // mv -> v
         state: data[5].replace(/\n|\r/g, ''),
         agl: (+data[8])/100 || null, // cm -> m
-        acc_x: (+data[9])/100 || null, // cm/s^2 -> m/s^2
-        acc_y: (+data[10])/100 || null, // cm/s^2 -> m/s^2
-        acc_z: (+data[11])/100 || null, // cm/s^2 -> m/s^2
-        gyro_x: +data[12] || null,
-        gyro_y: +data[13] || null,
-        gyro_z: +data[14] || null,
+        acc_x: (+data[11])/100 || null, // cm/s^2 -> m/s^2
+        acc_y: (+data[12])/100 || null, // cm/s^2 -> m/s^2
+        acc_z: (+data[13])/100 || null, // cm/s^2 -> m/s^2
+        gyro_x: +data[14] || null,
+        gyro_y: +data[15] || null,
+        gyro_z: +data[16] || null,
         verical_velocity: null,
         rssi: +message.rssi,
         packets_lost: packetsLost
